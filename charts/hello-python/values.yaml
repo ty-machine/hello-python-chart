@@ -5,7 +5,7 @@
 replicaCount: 2
 
 image:
-  repository: ericdewitte/hello-python
+  repository: m1tschreiner/hello-python
   tag: latest
   pullPolicy: IfNotPresent
 
