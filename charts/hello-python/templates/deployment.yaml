@@ -17,7 +17,7 @@ spec:
     metadata:
       annotations:
         vault.hashicorp.com/agent-inject: "true"
-        vault.hashicorp.com/agent-inject-secret-helloworld: "secrets/namespace/demo/*"
+        vault.hashicorp.com/agent-inject-secret-helloworld: "secrets/namespace/demo"
         vault.hashicorp.com/role: "myapp"
       labels:
         app.kubernetes.io/name: {{ include "hello-python-chart.name" . }}
