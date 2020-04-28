@@ -15,10 +15,15 @@ spec:
       app.kubernetes.io/instance: {{ .Release.Name }}
   template:
     metadata:
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/agent-inject-secret-helloworld: "secrets/namespace/demo/*"
+        vault.hashicorp.com/role: "myapp"
       labels:
         app.kubernetes.io/name: {{ include "hello-python-chart.name" . }}
         app.kubernetes.io/instance: {{ .Release.Name }}
     spec:
+      serviceAccountName: {{ .Values.identity.serviceAccount }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
